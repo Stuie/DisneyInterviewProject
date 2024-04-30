@@ -74,7 +74,6 @@ dependencies {
     implementation(libs.retrofit.converter.moshi)
     implementation(libs.moshi)
     implementation(libs.moshi.kotlin)
-    implementation(libs.coil)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.landscapist)
     implementation(libs.hilt.android)

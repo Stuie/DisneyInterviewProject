@@ -14,7 +14,7 @@ class AuthInterceptor : Interceptor {
         val hash = "$timestamp${BuildConfig.API_PRIVATE_KEY}${BuildConfig.API_PUBLIC_KEY}"
 
         val url = request
-            .url
+            .url()
             .newBuilder()
             .addQueryParameter("ts", timestamp)
             .addQueryParameter("apikey", BuildConfig.API_PUBLIC_KEY)

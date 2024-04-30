@@ -16,6 +16,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import com.skydoves.landscapist.fresco.FrescoImage
 
@@ -35,7 +36,9 @@ fun HomeScreen(
                     contentAlignment = Alignment.Center,
                     modifier = Modifier.fillMaxSize()
                 ) {
-                    CircularProgressIndicator()
+                    CircularProgressIndicator(
+                        modifier = Modifier.testTag("progressIndicator")
+                    )
                 }
             }
 
@@ -50,13 +53,12 @@ fun HomeScreen(
                 TwelveSpacer()
                 Text(
                     text = "Issue: ${comic.issueNumber}",
-                    color = Color.White,
                     modifier = Modifier.padding(end = 12.dp)
                 )
                 TwelveSpacer()
-                Text(text = comic.title, color = Color.White)
+                Text(text = comic.title)
                 TwelveSpacer()
-                Text(text = comic.description, color = Color.White)
+                Text(text = comic.description)
                 TwelveSpacer()
                 Text(text = comic.copyright, color = Color.Gray)
                 TwelveSpacer()
