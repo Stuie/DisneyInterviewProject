@@ -4,19 +4,22 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.marvel.data.Comic
 import com.example.marvel.data.ComicRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.last
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 import kotlin.random.Random
 
 interface HomeViewModel {
     val uiState: Flow<HomeUiState>
 }
 
-class DefaultHomeViewModel : HomeViewModel, ViewModel() {
-
-    private val comicRepository = ComicRepository()
+@HiltViewModel
+class DefaultHomeViewModel @Inject constructor(
+    comicRepository: ComicRepository
+) : HomeViewModel, ViewModel() {
 
     override val uiState = MutableStateFlow<HomeUiState>(HomeUiState.Loading)
 

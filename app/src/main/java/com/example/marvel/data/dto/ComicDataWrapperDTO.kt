@@ -1,6 +1,5 @@
 package com.example.marvel.data.dto
 
-import android.util.Log
 import com.example.marvel.data.Comic
 import java.net.URL
 
@@ -12,11 +11,6 @@ data class ComicsDataWrapperDTO(
     val data: ComicDataDTO,
 ) {
     fun toComic(): Comic {
-        Log.d(
-            "WrapperDTO",
-            "Artwork URL is going to be: ${data.results.firstOrNull()?.thumbnail?.path}.${data.results.firstOrNull()?.thumbnail?.extension}"
-        )
-
         val artworkURL = (
                 "${data.results.firstOrNull()?.thumbnail?.path}.${data.results.firstOrNull()?.thumbnail?.extension}"
                 )
