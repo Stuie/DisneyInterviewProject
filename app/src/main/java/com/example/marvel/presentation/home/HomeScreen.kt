@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,10 +27,14 @@ fun HomeScreen(
     viewModel: HomeViewModel
 ) {
     val uiState by viewModel.uiState.collectAsState(initial = HomeUiState.Loading)
+    val scrollState = rememberScrollState()
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.padding(12.dp).fillMaxWidth()
+        modifier = Modifier
+            .padding(12.dp)
+            .fillMaxWidth()
+            .verticalScroll(scrollState)
     ) {
         when (uiState) {
             HomeUiState.Loading -> {
